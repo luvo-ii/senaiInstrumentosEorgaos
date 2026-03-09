@@ -116,7 +116,7 @@ nav{
   transform: translateY(0);
 }
 .quadrado{
-  width: 100%;
+  width: 1200px;
   height: 350px;
 }
 .div_fundo_container{
@@ -142,6 +142,11 @@ nav{
   display: flex;
   align-items: center;
   justify-content: center;
+}
+@media screen and (max-width: 1500px){
+  .quadrado{
+    width: 100%;
+  }
 }
 @media screen and (max-width: 1200px){
   .container_main{
