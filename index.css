@@ -1,0 +1,150 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body{
+  /* background: linear-gradient(to right, #e8e4e0, #cfc9c4); */
+  background-color: #e8e4e0;
+  overflow-x: hidden;
+}
+.container_main{
+  padding: 0 100px 0 100px;
+  z-index: 20;
+}
+nav{
+  background-color: #222d52;
+}
+.bordas{
+  border: 3px dotted #222d52;
+  border-top: 0px;
+  border-bottom: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+.main{
+  position: relative;
+  height: 800px;
+  margin: 0;
+  padding: 0;
+  z-index: 5;
+}
+.nao-selecionavel {
+  -webkit-user-select: none; /* Chrome, Safari, Opera */
+  -moz-user-select: none;    /* Firefox */
+  -ms-user-select: none;     /* IE/Edge */
+  user-select: none;         /* Padrão moderno */
+}
+
+.main_div{
+  flex-direction: column;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 40%;
+  height: auto;
+  z-index: 101;
+
+  background-color: rgb(199, 199, 199, 0.25);
+  border-radius: 25px;
+}
+.main_text{
+  font-size: clamp(1.8rem, 5vh, 5rem);
+}
+.fundo_3d{
+  z-index: 100;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 0;
+}
+.mx-6{
+  margin: 0 2vw 0 2vw;
+}
+
+.div-infos{
+  max-width: 100%;
+  padding: 35px;
+  width: 100%;
+}
+.info_groups{
+  display: flex;
+  opacity: 0;
+  transition: 600ms ease;
+}
+.infos_left{
+  height: 16rem;
+  width: 50%;
+
+  background-color: #222d52;
+  opacity: 90%;
+  border-radius: 15px 0 0 15px;
+}
+.infos_right{
+  height: 16rem;
+  width: 50%;
+
+  background-color: #1f1f1f;
+  opacity: 90%;
+  border-radius: 0 15px 15px 0;
+}
+.divisor{
+  border: 3px dotted #222d52;
+  border-left: 0px;
+  border-right: 0px;
+  height: 60px;
+  width: calc(100% + 200px);
+  background-image: repeating-linear-gradient(
+    135deg,
+    #e8e4e0,
+    #e8e4e0 10px,
+    #cfc9c4 10px,
+    #cfc9c4 20px
+  );
+}
+.animar{
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 0.6s;
+}
+.animar.show{
+  opacity: 1;
+  transform: translateY(0);
+}
+.quadrado{
+  width: 100%;
+  height: 350px;
+}
+.div_fundo_container{
+  width: 100%;
+  height: clamp(1.8rem, 50vh, 50rem);
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.div_fundo{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 50%;
+  height: 100%;
+  width: 100%;
+  background-color: #cfc9c4;
+  border: 3px dotted #222d52;
+  border-radius: 15px;
+}
+.center{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@media screen and (max-width: 1200px){
+  .container_main{
+    padding: 0 50px 0 50px;
+  }
+}
