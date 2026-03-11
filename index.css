@@ -32,12 +32,6 @@ nav{
   padding: 0;
   z-index: 5;
 }
-.nao-selecionavel {
-  -webkit-user-select: none; /* Chrome, Safari, Opera */
-  -moz-user-select: none;    /* Firefox */
-  -ms-user-select: none;     /* IE/Edge */
-  user-select: none;         /* Padrão moderno */
-}
 
 .main_div{
   flex-direction: column;
@@ -48,6 +42,7 @@ nav{
   width: 40%;
   height: auto;
   z-index: 101;
+  padding: 15px;
 
   background-color: rgb(199, 199, 199, 0.25);
   border-radius: 25px;
@@ -66,32 +61,6 @@ nav{
   margin: 0 2vw 0 2vw;
 }
 
-.div-infos{
-  max-width: 100%;
-  padding: 35px;
-  width: 100%;
-}
-.info_groups{
-  display: flex;
-  opacity: 0;
-  transition: 600ms ease;
-}
-.infos_left{
-  height: 16rem;
-  width: 50%;
-
-  background-color: #222d52;
-  opacity: 90%;
-  border-radius: 15px 0 0 15px;
-}
-.infos_right{
-  height: 16rem;
-  width: 50%;
-
-  background-color: #1f1f1f;
-  opacity: 90%;
-  border-radius: 0 15px 15px 0;
-}
 .divisor{
   border: 3px dotted #222d52;
   border-left: 0px;
@@ -123,7 +92,7 @@ nav{
 .div_fundo_container{
   width: 100%;
   /* height: clamp(1.8rem, 50vh, 50rem); */
-  height: 600px;
+  height: 500px;
   padding: 5px;
   display: flex;
   align-items: center;
