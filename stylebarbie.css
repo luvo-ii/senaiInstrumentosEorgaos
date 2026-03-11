@@ -19,9 +19,13 @@
         }
         
     .container{
-            width: 70px;
-            height: 70px;
-       
+        height: 100%;
+            /* mudanças */
+            width: 140px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            padding-bottom: 200px;
         }
         
     .box{
@@ -32,6 +36,7 @@
             transform: translate(-50%, -50%);
             padding: 40px 40px;
             box-shadow: 0 0 15px rgb(200,200,200);
+            z-index: 1;
         }
     p{
             text-align: justify;
@@ -119,4 +124,140 @@
             margin: 5px;
           }
          
-      
+/* ----------------------------- */
+/* |     mudanças do grupo     | */
+/* ----------------------------- */
+
+.body{
+    overflow: none;
+}
+.btn_comprar{
+    position: relative;
+
+    padding: 10px 20px 10px 20px;
+    border-radius: 7px;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    transition: box-shadow 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0px 0px 0px transparent;
+    overflow-y: hidden;
+    z-index: 0;
+}
+.texto_btn{
+    position: relative;
+    z-index: 1;
+}
+.btn_comprar:hover{
+    transform: scale(1.1);
+}
+.btn_comprar:active{
+    transform: scale(1) !important;
+    box-shadow: 0px 0px 15px rgb(255, 255, 255, 0.5);
+}
+.preencher_btn{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0px;
+    background-color: #28a745;
+    z-index: 0;
+}
+.btn_comprar:focus .preencher_btn{
+    animation: carregarBtnComprar 3s linear forwards;
+}
+.fundo_animacao{
+    position: absolute;
+    height: calc(100vh + 20vh);
+    width: 100vw;
+
+    opacity: 0;
+    background-color: rgb(0, 0, 0, 0.3);
+    transition: all 0.3s ease-in-out;
+    z-index: 100;
+    display: none;
+}
+.animacaoOpacity{
+    display: block;
+    animation: animacaoOpacity 0.4s 2.8s ease-in-out forwards;
+}
+.animacaoOpacity2{
+    animation: animacaoOpacity2 0.4s ease-in-out forwards;
+}
+.pop_up{
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: -25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 300px;
+    width: 450px;
+    border-radius: 15px;
+    background:whitesmoke;
+    z-index: 999;
+}
+.animacaoDescer{
+    animation: descerPopUp 0.4s 2.8s linear forwards;
+}
+.animacaoDescer2{
+    animation: descerPopUp2 0.4s linear forwards;
+}
+.overflow{
+    overflow: hidden;
+}
+.pulinhos{
+    animation: pulinhos 0.6s 3.4s ease-in-out;
+}
+.btn_sair{
+    position: absolute;
+    bottom: 25px;
+    padding: 6px 16px 6px 16px;
+    border-radius: 7px;
+    background-color: #dc3545;
+    border: none;
+    color: white;
+}
+/* animações */
+@keyframes animacaoOpacity {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+@keyframes animacaoOpacity2 {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
+@keyframes descerPopUp {
+    0% {top: -15%;}
+    15% {top: 0%;}
+    45% {top: 15%;}
+    70% {top: 30%;}
+    100% {top: 45%;}
+}
+@keyframes descerPopUp2 {
+    0% {top: 45%;}
+    15% {top: 60%;}
+    45% {top: 75%;}
+    70% {top: 90%;}
+    100% {top: 110%;}
+}
+
+@keyframes carregarBtnComprar{
+    0% {width: 0%;}
+    25% {width: 25%;}
+    50% {width: 50%;}
+    75% {width: 75%;}
+    85% {width: 100%;}
+    100% {width: 100%;}
+}
+@keyframes pulinhos {
+    0% {transform: translateY(0px)}
+    25% {transform: translateY(-5px)}
+    50% {transform: translateY(-10px)}
+    75% {transform: translateY(-5px)}
+    100% {transform: translateY(0px)}
+}

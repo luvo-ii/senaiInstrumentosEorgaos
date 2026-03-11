@@ -1,86 +1,163 @@
 <!doctype html>
 <html lang="pt-br">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-    <link rel="stylesheet" href="index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="stylebarbie.css">
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Navbar-->
-    <nav class="navbar container-fluid position-fixed navbar-expand-lg navbar-dark d-flex justify-content-center" style="z-index: 999;">
-        <div class="container-fluid mx-5" style="padding: 10px 0 10px 0;">
-          <a class="navbar-brand" href="index.html">Senai Instrumentos</a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" style="margin-right: 217.06px;" id="navbarSupportedContent">
-            <ul class="navbar-nav mx-auto">
-              <li class="nav-item d-flex">
-                <a class="nav-link" aria-current="page" href="index.html"> Home </a>
-              </li>
-              <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  Instrumentos
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item" href="criticabarbie.html">Guitarra</a></li>
-                  <li><a class="dropdown-item" href="criticaguardioes.html">Piano</a></li>
-                  <li><a class="dropdown-item" href="oppen.html">Bateria</a></li>
-                </ul>
-              </li>
-              <!-- <li class="nav-item">
-                <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-              </li> -->
-            </ul>
-          </div>
-        </div>
-      </nav>
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<link rel="stylesheet" href="index.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="stylebarbie.css">
 
-      <div class="" style="height: 76px;"></div>
-
-      <!--  -->
-
-<div class="bg" style="background-color:#fe7e47">
-  <br> <br>
-    <h2 class="fst-italic" data-text="Barbie" >Stratocaster </h2>
-<div class="container">
-  <div class="box">
-      <p class="fw-semibold" >A Fender Stratocaster, criada em 1954 por Leo Fender, é uma das guitarras elétricas mais icônicas e versáteis do mundo, famosa pelo design double-cutaway, som claro e estalado (comum em SSS) e ponte com alavanca. Popularizada por Jimi Hendrix e Eric Clapton, é ideal para rock, blues, funk e pop, oferecendo grande versatilidade através de seus três captadores.</p>
- 
- 
- 
-         
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star checked"></span>
-          <span class="fa fa-star"></span>
-
-      
-    
-
-          
-             
+<!-- Navbar-->
+<nav class="navbar container-fluid position-fixed navbar-expand-lg navbar-dark d-flex justify-content-center"
+  style="z-index: 999;">
+  <div class="container-fluid mx-5" style="padding: 10px 0 10px 0;">
+    <a class="navbar-brand" href="index.html">Senai Instrumentos</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" style="margin-right: 217.06px;" id="navbarSupportedContent">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item d-flex">
+          <a class="nav-link" aria-current="page" href="index.html"> Home </a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Instrumentos
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="criticabarbie.html">Guitarra</a></li>
+            <li><a class="dropdown-item" href="criticaguardioes.html">Piano</a></li>
+            <li><a class="dropdown-item" href="oppen.html">Bateria</a></li>
+          </ul>
+        </li>
+        <!-- <li class="nav-item">
+              <a class="nav-link disabled" aria-disabled="true">Disabled</a>
+            </li> -->
+      </ul>
+    </div>
   </div>
-</div>
-</div>
-<figure id="imagem1"> </figure>
-<div class="gallery">
-  <article class="card" style="left: 200px; top: 130px; bottom: 450px; position: absolute;">
-    <figure>
-      <img src="img/gui.png" height="510">
-    </figure>
-  </article>
-</div>
+</nav>
+
+<div class="" style="height: 76px;"></div>
+<body id="body">
+  
+  <!-- MUDANÇAS -->
+  <div id="fundo_animacao" class="fundo_animacao">
+    <div id="pop_up" class="pop_up">
+      <!-- Parabéns pela sua compra!!! -->
+      <h2 class="animacao_pulinhos">P</h2>
+      <h2 class="animacao_pulinhos">a</h2>
+      <h2 class="animacao_pulinhos">r</h2>
+      <h2 class="animacao_pulinhos">a</h2>
+      <h2 class="animacao_pulinhos">b</h2>
+      <h2 class="animacao_pulinhos">é</h2>
+      <h2 class="animacao_pulinhos">n</h2>
+      <h2 class="animacao_pulinhos" style="margin-right: 10px;">s</h2>
+      <h2 class="animacao_pulinhos">p</h2>
+      <h2 class="animacao_pulinhos">e</h2>
+      <h2 class="animacao_pulinhos">l</h2>
+      <h2 class="animacao_pulinhos" style="margin-right: 10px;">a</h2>
+      <h2 class="animacao_pulinhos">s</h2>
+      <h2 class="animacao_pulinhos">u</h2>
+      <h2 class="animacao_pulinhos" style="margin-right: 10px;">a</h2>
+      <h2 class="animacao_pulinhos">c</h2>
+      <h2 class="animacao_pulinhos">o</h2>
+      <h2 class="animacao_pulinhos">m</h2>
+      <h2 class="animacao_pulinhos">p</h2>
+      <h2 class="animacao_pulinhos">r</h2>
+      <h2 class="animacao_pulinhos">a</h2>
+      <h2 class="animacao_pulinhos">!</h2>
+      <button class="btn_sair" onclick="sair()">Sair</button>
+    </div>
+  </div>
+  <!-- MUDANÇAS -->
+  
+  <div class="bg" style="background-color:#fe7e47">
+    <br> <br>
+    <h2 class="fst-italic">Stratocaster </h2>
+    <div class="container">
+      <div class="box">
+        <p class="fw-semibold">A Fender Stratocaster, criada em 1954 por Leo Fender, é uma das guitarras elétricas mais
+          icônicas e versáteis do mundo, famosa pelo design double-cutaway, som claro e estalado (comum em SSS) e ponte
+          com alavanca. Popularizada por Jimi Hendrix e Eric Clapton, é ideal para rock, blues, funk e pop, oferecendo
+          grande versatilidade através de seus três captadores.</p>
+  
+  
+  
+  
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star checked"></span>
+        <span class="fa fa-star"></span>
+  
+  
+  
+  
+  
+  
+      </div>
+      <button onclick="aparecer()" class="btn_comprar"><span class="texto_btn">Comprar</span> <div class="preencher_btn"></div></button>
+    </div>
+  </div>
+  <figure id="imagem1"> </figure>
+  <div class="gallery">
+    <article class="card" style="left: 200px; top: 130px; bottom: 450px; position: absolute;">
+      <figure>
+        <img src="img/gui.png" height="510">
+      </figure>
+    </article>
+  </div>
   <section id="video">
     </div>
-
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/0qanF-91aJo?si=md1JVEeHJ4TgZU6F" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    
+  
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/0qanF-91aJo?si=md1JVEeHJ4TgZU6F"
+      title="YouTube video player" frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+  
     </div>
   </section>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+  <script>
+    let fundo_animacao = document.getElementById('fundo_animacao')
+    let pop_up = document.getElementById('pop_up')
+    let body = document.getElementById('body')
+    let animacao_pulinhos = document.querySelectorAll('.animacao_pulinhos')
+    function aparecer(){
+      fundo_animacao.classList.add('animacaoOpacity')
+      fundo_animacao.classList.remove('animacaoOpacity2')
+      pop_up.classList.add('animacaoDescer')
+      body.classList.toggle('overflow')
+
+      animacao_pulinhos.forEach((h2, index) => {
+        setTimeout(()=>{
+          h2.classList.add('pulinhos')
+        }, index * 100)
+      })
+    }
+    function removerAnimacao(){
+      body.classList.toggle('overflow')
+      fundo_animacao.classList.add('animacaoOpacity2')
+      fundo_animacao.classList.remove('animacaoOpacity')
+      pop_up.classList.remove('animacaoDescer2')
+    }
+    function sair(){
+      pop_up.classList.add('animacaoDescer2')
+      pop_up.classList.remove('animacaoDescer')
+      setTimeout(removerAnimacao, 600)
+
+      animacao_pulinhos.forEach((h2, index) => {
+          h2.classList.remove('pulinhos')
+      })
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+</body>
