@@ -13,6 +13,12 @@
   margin: 50px;
 }
 
+.w-100{
+  width: 100% !important;
+  height: 300px;
+  border-radius: 30px;
+}
+
 .flip-card-inner {
   position: relative;
   width: 100%;
