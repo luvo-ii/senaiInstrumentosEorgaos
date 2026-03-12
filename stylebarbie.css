@@ -73,12 +73,13 @@
             text-align: center;
           }
     .star-container {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 500vh;
-            margin: 0;
-          }
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh; /* Ocupa pelo menos a altura da tela */
+        width: 100%;
+        margin: 0;
+    }
       
     .fa-star {
             font-size: 30px;
@@ -260,4 +261,59 @@
     50% {transform: translateY(-10px)}
     75% {transform: translateY(-5px)}
     100% {transform: translateY(0px)}
+}
+
+/* Reseta os posicionamentos que quebram o layout no mobile */
+@media screen and (max-width: 992px) {
+    .bg {
+        padding-left: 20px !important;
+        height: auto !important;
+        padding-bottom: 400px;
+    }
+
+    .box, .card {
+        position: relative !important;
+        left: auto !important;
+        top: auto !important;
+        transform: none !important;
+        width: 90% !important;
+        margin: 20px auto !important;
+    }
+
+    .card {
+        height: auto !important; /* Permite que a altura se ajuste à imagem */
+    }
+
+    #video iframe {
+        width: 90% !important;
+        height: auto !important;
+        aspect-ratio: 16 / 9;
+    }
+
+    .container{
+        width: 500px;
+        margin-bottom: 200px
+    }
+
+    .btn_comprar{
+        display: none;
+    }
+
+    .card{
+        left: 1px !important;
+        top: 1px !important;
+        bottom: 1px !important;
+        position: none;
+        margin-top: -700px !important;
+        margin-bottom: 200px !important;
+    }
+
+    .ytp-error {
+        margin-top: 20px;
+    }
+    .ytp-error {
+        margin-top: 20px;
+    }
+
+
 }

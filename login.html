@@ -1,0 +1,597 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Login — Senai Instrumentos</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    :root {
+      --navy: #222d52;
+      --cream: #e8e4e0;
+      --warm: #cfc9c4;
+      --accent1: #fe7e47;
+      --accent2: #cf446e;
+      --accent3: #7847fe;
+    }
+
+    body {
+      min-height: 100vh;
+      background-color: var(--cream);
+      font-family: 'DM Sans', sans-serif;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+
+    /* ── Notas musicais flutuantes ── */
+    .notes-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .note {
+      position: absolute;
+      font-size: 2rem;
+      opacity: 0.07;
+      animation: floatNote linear infinite;
+      color: var(--navy);
+      user-select: none;
+    }
+
+    @keyframes floatNote {
+      0%   { transform: translateY(110vh) rotate(0deg); opacity: 0; }
+      10%  { opacity: 0.07; }
+      90%  { opacity: 0.07; }
+      100% { transform: translateY(-10vh) rotate(360deg); opacity: 0; }
+    }
+
+    /* ── Navbar ── */
+    nav {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      background-color: var(--navy);
+      z-index: 100;
+      padding: 14px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-brand {
+      color: white;
+      font-family: 'Playfair Display', serif;
+      font-size: 1.2rem;
+      text-decoration: none;
+      letter-spacing: 0.03em;
+    }
+
+    .nav-back {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.85rem;
+      text-decoration: none;
+      font-weight: 300;
+      transition: color 0.2s;
+      letter-spacing: 0.05em;
+    }
+
+    .nav-back:hover { color: white; }
+
+    /* ── Layout principal ── */
+    .page-wrapper {
+      display: flex;
+      min-height: 100vh;
+      padding-top: 56px;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* ── Painel esquerdo decorativo ── */
+    .left-panel {
+      display: none;
+      flex: 1;
+      background-color: var(--navy);
+      position: relative;
+      overflow: hidden;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      padding: 60px;
+    }
+
+    @media (min-width: 900px) {
+      .left-panel { display: flex; }
+    }
+
+    .left-panel::before {
+      content: '';
+      position: absolute;
+      top: -80px;
+      right: -80px;
+      width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      background: var(--accent1);
+      opacity: 0.15;
+    }
+
+    .left-panel::after {
+      content: '';
+      position: absolute;
+      bottom: -60px;
+      left: -60px;
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      background: var(--accent3);
+      opacity: 0.15;
+    }
+
+    .left-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+    }
+
+    .left-content h1 {
+      font-family: 'Playfair Display', serif;
+      color: white;
+      font-size: clamp(2rem, 3vw, 3rem);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .left-content h1 em {
+      color: var(--accent1);
+      font-style: italic;
+    }
+
+    .left-content p {
+      color: rgba(255,255,255,0.55);
+      font-weight: 300;
+      font-size: 0.95rem;
+      line-height: 1.7;
+      max-width: 320px;
+      margin: 0 auto;
+    }
+
+    .instrument-icons {
+      display: flex;
+      gap: 30px;
+      margin: 40px 0;
+      justify-content: center;
+    }
+
+    .instr-icon {
+      width: 70px;
+      height: 70px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      animation: iconBob ease-in-out infinite alternate;
+    }
+
+    .instr-icon:nth-child(1) { background: rgba(254,126,71,0.2); animation-duration: 2.5s; animation-delay: 0s; }
+    .instr-icon:nth-child(2) { background: rgba(207,68,110,0.2); animation-duration: 3s;   animation-delay: 0.4s; }
+    .instr-icon:nth-child(3) { background: rgba(120,71,254,0.2); animation-duration: 2s;   animation-delay: 0.8s; }
+
+    @keyframes iconBob {
+      from { transform: translateY(0); }
+      to   { transform: translateY(-12px); }
+    }
+
+    .stripes {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: repeating-linear-gradient(
+        90deg,
+        var(--accent1) 0px, var(--accent1) 33.3%,
+        var(--accent2) 33.3%, var(--accent2) 66.6%,
+        var(--accent3) 66.6%, var(--accent3) 100%
+      );
+    }
+
+    /* ── Painel direito (formulário) ── */
+    .right-panel {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+      background-color: var(--cream);
+      position: relative;
+    }
+
+    .right-panel::before {
+      content: '';
+      position: absolute;
+      top: 30px;
+      right: 30px;
+      width: 120px;
+      height: 120px;
+      border: 3px dotted var(--navy);
+      border-radius: 50%;
+      opacity: 0.15;
+    }
+
+    .login-card {
+      width: 100%;
+      max-width: 420px;
+      animation: slideUp 0.6s cubic-bezier(0.19, 1, 0.22, 1) forwards;
+      opacity: 0;
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .login-card-header {
+      margin-bottom: 36px;
+    }
+
+    .login-card-header .tag {
+      display: inline-block;
+      background-color: var(--navy);
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 20px;
+      margin-bottom: 16px;
+    }
+
+    .login-card-header h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      color: var(--navy);
+      line-height: 1.2;
+    }
+
+    .login-card-header p {
+      color: #888;
+      font-size: 0.9rem;
+      margin-top: 8px;
+      font-weight: 300;
+    }
+
+    /* ── Campos ── */
+    .field {
+      margin-bottom: 20px;
+    }
+
+    .field label {
+      display: block;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .input-wrap {
+      position: relative;
+    }
+
+    .input-wrap .icon {
+      position: absolute;
+      left: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1rem;
+      color: #aaa;
+      pointer-events: none;
+      transition: color 0.2s;
+    }
+
+    .input-wrap input {
+      width: 100%;
+      padding: 13px 14px 13px 42px;
+      border: 2px solid var(--warm);
+      border-radius: 10px;
+      background: white;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      color: var(--navy);
+      outline: none;
+      transition: border-color 0.25s, box-shadow 0.25s;
+    }
+
+    .input-wrap input:focus {
+      border-color: var(--navy);
+      box-shadow: 0 0 0 3px rgba(34,45,82,0.08);
+    }
+
+    .input-wrap input:focus + .icon,
+    .input-wrap input:focus ~ .icon {
+      color: var(--navy);
+    }
+
+    .input-wrap input::placeholder {
+      color: #bbb;
+      font-weight: 300;
+    }
+
+    /* ── Toggle senha ── */
+    .toggle-pw {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #aaa;
+      font-size: 0.85rem;
+      padding: 4px;
+      transition: color 0.2s;
+    }
+
+    .toggle-pw:hover { color: var(--navy); }
+
+    /* ── Esqueceu senha ── */
+    .forgot {
+      text-align: right;
+      margin-top: -10px;
+      margin-bottom: 24px;
+    }
+
+    .forgot a {
+      font-size: 0.8rem;
+      color: #999;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .forgot a:hover { color: var(--accent2); }
+
+    /* ── Botão entrar ── */
+    .btn-login {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 10px;
+      background-color: var(--navy);
+      color: white;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.15s, box-shadow 0.2s;
+    }
+
+    .btn-login::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-color: #1a0d92;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .btn-login:hover::after { opacity: 1; }
+
+    .btn-login:hover {
+      box-shadow: 0 8px 20px rgba(34,45,82,0.25);
+    }
+
+    .btn-login:active { transform: translateY(0); }
+
+    .btn-login span { position: relative; z-index: 1; }
+
+    /* ── Divisor ── */
+    .divider {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin: 24px 0;
+      color: #bbb;
+      font-size: 0.8rem;
+      font-weight: 300;
+    }
+
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--warm);
+    }
+
+    /* ── Botão criar conta ── */
+    .btn-register {
+      width: 100%;
+      padding: 13px;
+      border: 2px solid var(--warm);
+      border-radius: 10px;
+      background: transparent;
+      color: var(--navy);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 400;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .btn-register:hover {
+      border-color: var(--navy);
+      background: var(--navy);
+      color: white;
+    }
+
+    /* ── Erro de validação ── */
+    .error-msg {
+      display: none;
+      background: #fff0f3;
+      border: 1px solid var(--accent2);
+      color: var(--accent2);
+      border-radius: 8px;
+      padding: 10px 14px;
+      font-size: 0.85rem;
+      margin-bottom: 18px;
+      animation: shake 0.4s ease;
+    }
+
+    .error-msg.show { display: block; }
+
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25%       { transform: translateX(-6px); }
+      75%       { transform: translateX(6px); }
+    }
+
+    /* ── Responsivo mobile ── */
+    @media (max-width: 599px) {
+      nav { padding: 14px 20px; }
+
+      .right-panel { padding: 30px 16px; align-items: flex-start; padding-top: 40px; }
+
+      .login-card-header h2 { font-size: 1.8rem; }
+
+      .right-panel::before { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Notas flutuantes de fundo -->
+  <div class="notes-bg" id="notesBg"></div>
+
+  <!-- Navbar -->
+  <nav>
+    <a href="index.html" class="nav-brand">Senai Instrumentos</a>
+    <a href="index.html" class="nav-back">← Voltar para o site</a>
+  </nav>
+
+  <div class="page-wrapper">
+
+    <!-- Painel esquerdo (visível só em desktop) -->
+    <div class="left-panel">
+      <div class="left-content">
+        <h1>Bem-vindo de<br>volta à <em>música</em></h1>
+        <p>Acesse sua conta para explorar guitarras, pianos e baterias com as melhores avaliações.</p>
+      </div>
+      <div class="stripes"></div>
+    </div>
+
+    <!-- Painel direito (formulário) -->
+    <div class="right-panel">
+      <div class="login-card">
+
+        <div class="login-card-header">
+          <span class="tag">Acesso</span>
+          <h2>Entrar na conta</h2>
+          <p>Preencha seus dados para continuar</p>
+        </div>
+
+        <div class="error-msg" id="errorMsg">
+          ⚠️ E-mail ou senha incorretos. Tente novamente.
+        </div>
+
+        <div class="field">
+          <label for="email">E-mail</label>
+          <div class="input-wrap">
+            <input type="email" id="email" placeholder="seu@email.com" autocomplete="email">
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="senha">Senha</label>
+          <div class="input-wrap">
+            <input type="password" id="senha" placeholder="••••••••" autocomplete="current-password">
+            <button class="toggle-pw" onclick="toggleSenha()" type="button" title="Mostrar/ocultar senha">👁</button>
+          </div>
+        </div>
+
+        <div class="forgot">
+          <a href="#">Esqueceu a senha?</a>
+        </div>
+
+        <button class="btn-login" onclick="fazerLogin()">
+          <span>Entrar</span>
+        </button>
+
+        <div class="divider">ou</div>
+
+        <button class="btn-register" onclick="alert('Cadastro em breve!')">
+          Criar nova conta
+        </button>
+
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    // Notas flutuantes
+    const symbols = ['♩','♪','♫','♬','𝄞','𝄢'];
+    const bg = document.getElementById('notesBg');
+    for (let i = 0; i < 18; i++) {
+      const el = document.createElement('span');
+      el.classList.add('note');
+      el.textContent = symbols[Math.floor(Math.random() * symbols.length)];
+      el.style.left = Math.random() * 100 + 'vw';
+      el.style.fontSize = (1.2 + Math.random() * 2.5) + 'rem';
+      el.style.animationDuration = (12 + Math.random() * 20) + 's';
+      el.style.animationDelay = (Math.random() * 15) + 's';
+      bg.appendChild(el);
+    }
+
+    // Toggle senha
+    function toggleSenha() {
+      const input = document.getElementById('senha');
+      input.type = input.type === 'password' ? 'text' : 'password';
+    }
+
+    // Login (simulado)
+    function fazerLogin() {
+      const email = document.getElementById('email').value.trim();
+      const senha = document.getElementById('senha').value;
+      const err   = document.getElementById('errorMsg');
+
+      if (!email || !senha) {
+        err.textContent = '⚠️ Preencha todos os campos.';
+        err.classList.add('show');
+        return;
+      }
+
+      // Credencial demo
+      if (email === 'admin@senai.com' && senha === '1234') {
+        err.classList.remove('show');
+        document.querySelector('.btn-login span').textContent = '✓ Entrando...';
+        setTimeout(() => window.location.href = 'index.html', 1000);
+      } else {
+        err.textContent = '⚠️ E-mail ou senha incorretos. Tente novamente.';
+        err.classList.remove('show');
+        void err.offsetWidth; // reset animation
+        err.classList.add('show');
+      }
+    }
+
+    // Enter para logar
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Enter') fazerLogin();
+    });
+  </script>
+</body>
+</html>
