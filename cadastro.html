@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senai Instrumentos - Cadastro</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="cadastro.css"> </head>
+<body class="cadastro-body">
+
+    <div class="music-notes-layer"></div>
+
+    <div class="container d-flex justify-content-center align-items-center min-vh-100">
+        <div class="card-cadastro animar show">
+            <div class="text-center mb-4">
+                <h2 class="fw-bold" style="color: #222d52;">Criar Conta</h2>
+                <p style="color: #555;">Junte-se à nossa comunidade musical</p>
+            </div>
+
+            <form>
+                <div class="mb-3">
+                    <label class="form-label">Nome Completo</label>
+                    <input type="text" class="form-control custom-input" placeholder="Ex: Ana Lívia">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">E-mail</label>
+                    <input type="email" class="form-control custom-input" placeholder="email@exemplo.com">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Sua Especialidade</label>
+                    <select class="form-select custom-input">
+                        <option selected>Selecione um instrumento</option>
+                        <option value="1">Guitarra / Violão</option>
+                        <option value="2">Piano / Teclado</option>
+                        <option value="3">Bateria / Percussão</option>
+                    </select>
+                </div>
+                <div class="mb-4">
+                    <label class="form-label">Senha</label>
+                    <input type="password" class="form-control custom-input" placeholder="••••••••">
+                </div>
+
+                <button type="submit" class="btn-cadastro w-100 mb-3">Cadastrar</button>
+                
+                <div class="text-center d-flex flex-column">
+                    <span>Já tem uma conta? <a href="login.html" style="color: #222d52; font-weight: bold;">Entrar</a></span>
+                    <span>Entrar sem logar <a href="index.html" style="color: #222d52; font-weight: bold;">Página inicial</a></span>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- <script src="script.js"></script> -->
+</body>
+</html>

@@ -1,0 +1,74 @@
+/* Configuração do fundo para harmonizar com a Home */
+.login-body {
+    background-color: #e8e4e0;
+    overflow: hidden;
+    position: relative;
+    min-height: 100vh;
+}
+
+/* A faixa azul angulada (marca registrada da sua Main) */
+.login-body::before {
+    content: "";
+    position: absolute;
+    bottom: 20%; /* Inverti para o rodapé para diferenciar do cadastro */
+    right: -50vw;
+    width: 200vw;
+    height: 450px;
+    background-color: rgba(34, 45, 82, 0.08); /* Azul escuro bem sutil */
+    transform: rotate(7deg); /* Angulação oposta à do cadastro */
+    z-index: -1;
+}
+
+/* Card de Login */
+.card-login {
+    background: rgba(207, 201, 196, 0.7); /* Mesma cor das suas bordas internas */
+    backdrop-filter: blur(12px);
+    border: 3px dotted #222d52; /* O pontilhado dos seus divisores */
+    padding: 50px 40px;
+    border-radius: 40px 10px 40px 10px; /* Um arredondado assimétrico moderno */
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 20px 20px 60px rgba(0, 0, 0, 0.05);
+    z-index: 10;
+}
+
+/* Pequeno divisor estilizado abaixo do título */
+.divisor-pequeno {
+    width: 50px;
+    height: 4px;
+    background: #222d52;
+    margin: 10px auto;
+    border-radius: 2px;
+}
+
+/* Botão de Login */
+.btn-login {
+    background-color: #222d52;
+    color: #e8e4e0;
+    border: 2px solid #222d52;
+    padding: 14px;
+    border-radius: 15px;
+    font-weight: 800;
+    text-transform: uppercase;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.btn-login:hover {
+    background-color: transparent;
+    color: #222d52;
+    transform: scale(1.02);
+}
+
+/* Inputs (Mantendo o padrão que você já gostou) */
+.custom-input {
+    background: rgba(255, 255, 255, 0.3) !important;
+    border: 2px solid transparent !important;
+    border-radius: 12px !important;
+    color: #222d52 !important;
+}
+
+.custom-input:focus {
+    border-color: #222d52 !important;
+    background: white !important;
+    box-shadow: none !important;
+}

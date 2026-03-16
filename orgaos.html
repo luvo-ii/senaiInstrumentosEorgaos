@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<link rel="stylesheet" href="index.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="stylebarbie.css">
+<link rel="stylesheet" href="orgaos.css">
+<style>
+  /* Ajuste para o hover da Bateria */
+.img-produto-full:hover {
+    /* Um balanço que lembra a vibração dos pratos */
+    transform: scale(1.05) rotate(2deg) translateY(-5px);
+}
+
+/* Estilo para a opção de degradê no botão de cor */
+.btn-color[title="Natural Fade"] {
+    border: 1px solid rgba(0,0,0,0.1);
+}
+</style>
+</head>
+<body id="body">
+    <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-dark position-fixed w-100">
+    <div class="container-fluid px-5 py-2">
+      <a class="navbar-brand" href="index.html">Senai Instrumentos e Órgãos</a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html">Home</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              Instrumentos
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="criticabarbie.html">Guitarra</a></li>
+              <li><a class="dropdown-item" href="criticaguardioes.html">Piano</a></li>
+              <li><a class="dropdown-item" href="oppen.html">Bateria</a></li>
+            </ul>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+    <div style="position: absolute; width: 100vw; height: 100px; top: 0; left: 0; background-color: #000;"></div>
+    <div id="fundo_animacao" class="fundo_animacao"></div>
+    <div id="pop_up" class="pop_up" style="flex-direction: column;">
+        <span>
+            <h2 class="animacao_pulinhos">P</h2>
+            <h2 class="animacao_pulinhos">a</h2>
+            <h2 class="animacao_pulinhos">r</h2>
+            <h2 class="animacao_pulinhos">a</h2>
+            <h2 class="animacao_pulinhos">b</h2>
+            <h2 class="animacao_pulinhos">é</h2>
+            <h2 class="animacao_pulinhos">n</h2>
+            <h2 class="animacao_pulinhos" style="margin-right: 10px;">s</h2>
+            <h2 class="animacao_pulinhos">!</h2>
+        </span>
+        <span>
+            <h2 class="animacao_pulinhos">n</h2>
+            <h2 class="animacao_pulinhos">ã</h2>
+            <h2 class="animacao_pulinhos" style="margin-right: 10px;">o</h2>
+            <h2 class="animacao_pulinhos">p</h2>
+            <h2 class="animacao_pulinhos">e</h2>
+            <h2 class="animacao_pulinhos">r</h2>
+            <h2 class="animacao_pulinhos">c</h2>
+            <h2 class="animacao_pulinhos" style="margin-right: 10px;">a</h2>
+            <h2 class="animacao_pulinhos">n</h2>
+            <h2 class="animacao_pulinhos">o</h2>
+            <h2 class="animacao_pulinhos">s</h2>
+            <h2 class="animacao_pulinhos">s</h2>
+            <h2 class="animacao_pulinhos" style="margin-right: 10px;">o</h2>
+            <h2 class="animacao_pulinhos">l</h2>
+            <h2 class="animacao_pulinhos">e</h2>
+            <h2 class="animacao_pulinhos">i</h2>
+            <h2 class="animacao_pulinhos">l</h2>
+            <h2 class="animacao_pulinhos">ã</h2>
+            <h2 class="animacao_pulinhos">o</h2>
+        </span>
+        <span>
+            <h2 class="animacao_pulinhos">(</h2>
+            <h2 class="animacao_pulinhos">20</h2>
+            <h2 class="animacao_pulinhos">/</h2>
+            <h2 class="animacao_pulinhos">03</h2>
+            <h2 class="animacao_pulinhos">)</h2>
+        </span>
+        <button class="btn_sair" onclick="sair()">Sair</button>
+    </div>
+    <div class="music-notes-layer"></div>
+<main class="container-fluid p-0 min-vh-100" style="background-color: #e8e4e0; position: relative; overflow: hidden; padding-top: 80px;">
+    
+    <div class="music-notes-layer"></div>
+
+    <div class="produto-full-width bg-dark">
+        <div class="row g-0 h-100">
+            
+            <div class="col-lg-6 d-flex align-items-center justify-content-center p-5 bg-image-container">
+                <img src="img/orgao-removebg-preview.png" class="img-fluid img-produto-full" alt="Pearl Masterworks">
+            </div>
+
+            <div class="col-lg-6 d-flex align-items-center">
+                <div class="p-5 info-container">
+                    <h1 class="titulo-produto bord">Coração recém removido</h1>
+                    <p class="texto-produto">
+                        O coração foi cuidadosamente retirado e armazenado no dia 14/03/2026, este produto foi doado por um jovem saudável com muito carinho para nossa renomada instituição de leilão caridoso, está em perfeito estado e lembrem-se, todos so nossos lucros serão doados para os mais necessitados.
+                    </p>
+
+                    <div class="customizacao-box mb-4">
+                        <h5 class="mb-3 bord2" style="color: rgba(82, 34, 34, 0.95) !important; font-weight: 700;">ESPECIFICAÇÕES:</h5>
+                        
+                        <div class="mb-3">
+                            <label class="form-label small fw-bold">Cor:</label>
+                            <div class="d-flex gap-2">
+                                <div class="btn-color active" style="background-color: #5d1916;" title="Artisan Wine Red"></div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label small fw-bold">IDADE DO ÓRGÃO:</label>
+                            <select class="form-select custom-select-prod">
+                                <option selected>25 Anos</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="d-flex align-items-center gap-4 mt-5">
+                        <h2 class="preco-tag bord2">R$ 4.000.000,00</h2>
+                        <button class="btn_comprar" onfocus="aparecer()">
+                            <span class="preencher_btn"></span>
+                            <span class="texto_btn">Participar do leilão</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+  <script>
+    let fundo_animacao = document.getElementById('fundo_animacao')
+    let pop_up = document.getElementById('pop_up')
+    let body = document.getElementById('body')
+    let animacao_pulinhos = document.querySelectorAll('.animacao_pulinhos')
+    function aparecer(){
+      fundo_animacao.classList.add('animacaoOpacity')
+      fundo_animacao.classList.remove('animacaoOpacity2')
+      pop_up.classList.add('animacaoDescer')
+      body.classList.toggle('overflow')
+
+      animacao_pulinhos.forEach((h2, index) => {
+        setTimeout(()=>{
+          h2.classList.add('pulinhos')
+        }, index * 100)
+      })
+    }
+    function removerAnimacao(){
+      body.classList.toggle('overflow')
+      fundo_animacao.classList.add('animacaoOpacity2')
+      fundo_animacao.classList.remove('animacaoOpacity')
+      pop_up.classList.remove('animacaoDescer2')
+    }
+    function sair(){
+      pop_up.classList.add('animacaoDescer2')
+      pop_up.classList.remove('animacaoDescer')
+      setTimeout(removerAnimacao, 600)
+
+      animacao_pulinhos.forEach((h2, index) => {
+          h2.classList.remove('pulinhos')
+      })
+    }
+    const navEl = document.querySelector('.navbar');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY >= 50) {
+        navEl.classList.add('navbar-scrolled');
+      } else {
+        navEl.classList.remove('navbar-scrolled');
+      }
+    });
+function createNotes() {
+    const layer = document.querySelector('.music-notes-layer');
+    if(!layer) return;
+
+    const noteIcons = ['♡']; //'❤️'
+    
+    for (let i = 0; i < 20; i++) { // Aumentei um pouco a quantidade
+        let note = document.createElement('div');
+        note.className = 'note';
+        note.innerText = noteIcons[Math.floor(Math.random() * noteIcons.length)];
+        
+        note.style.left = Math.random() * 100 + "vw";
+        note.style.fontSize = (Math.random() * 20 + 20) + "px";
+        
+        // Cores baseadas no seu azul escuro e no azul da faixa
+        note.style.color = Math.random() > 0.5 ? '#b65353f2' : '#e45b5bf2';
+        
+        // --- O PULO DO GATO ---
+        // Usar um valor negativo (ex: -10s) faz a animação começar "no meio"
+        const delay = Math.random() * 15;
+        note.style.animationDelay = `-${delay}s`; 
+        
+        // Velocidades diferentes para dar profundidade
+        const duration = 10 + Math.random() * 10;
+        note.style.animationDuration = `${duration}s`;
+        
+        layer.appendChild(note);
+    }
+}
+
+// Chama a função ao carregar a página
+document.addEventListener('DOMContentLoaded', createNotes);
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+</body>

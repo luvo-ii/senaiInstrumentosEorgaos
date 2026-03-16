@@ -1,0 +1,312 @@
+/* --- CONTAINER DE PRODUTO (FULL WIDTH) --- */
+.produto-full-width {
+    width: 100%;
+    /* Removi min-height fixo para deixar o conteúdo definir a altura, melhor para responsividade */
+    min-height: 85vh; 
+    background-color: #cfc9c4;
+    border-top: 3px dotted #222d52;
+    border-bottom: 3px dotted #222d52;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    padding: 50px 0; /* Espaçamento interno vertical */
+}
+
+/* --- LADO DA IMAGEM --- */
+.bg-image-container {
+    border-right: 3px dotted #222d52;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2vw; /* Padding responsivo baseado na largura da tela */
+}
+
+.img-produto-full {
+    /* --- RESPOSTA PARA IMAGEM MAIOR E RESPONSIVA --- */
+    width: 80%; /* Ocupa 80% da largura do container pai */
+    max-width: 650px; /* Limite máximo para não estourar em telas 4K */
+    height: auto; /* Mantém a proporção */
+    max-height: 80vh; /* Não deixa a imagem ficar mais alta que a tela */
+    
+    filter: drop-shadow(20px 20px 40px rgba(0,0,0,0.3));
+    transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.img-produto-full:hover {
+    transform: scale(1.05) rotate(-3deg); /* Reduzi um pouco o scale para não cortar */
+}
+
+/* --- LADO DO TEXTO (INFO CONTAINER) --- */
+.info-container {
+    padding: 4vw 5vw; /* Padding responsivo */
+}
+
+/* --- RESPOSTA PARA TÍTULO RESPONSIVO --- */
+.titulo-produto {
+    font-weight: 800;
+    color: #222d52;
+    text-transform: uppercase;
+    margin-bottom: 20px;
+    
+    /* Uso de clamp() para um título fluido: Min 2.5rem, Ideal 5vw, Max 4.5rem */
+    font-size: clamp(2.5rem, 5vw, 4.5rem); 
+    line-height: 1.1;
+}
+
+.texto-produto {
+    color: #444;
+    line-height: 1.8;
+    margin-bottom: 35px;
+    font-size: clamp(1rem, 1.2vw, 1.25rem); /* Texto também flui um pouco */
+}
+
+/* Preço e Botão */
+.preco-tag {
+    color: #222d52;
+    font-weight: 900;
+    margin: 0;
+    font-size: clamp(1.8rem, 3vw, 2.8rem);
+}
+
+/* --- MEDIA QUERIES PARA AJUSTE FINO (MOBILE/TABLET) --- */
+
+/* --- CUSTOMIZAÇÃO --- */
+.btn-color {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 2px solid #e8e4e0;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-color.active, .btn-color:hover {
+    border-color: #222d52;
+    transform: scale(1.2);
+}
+
+.custom-select-prod {
+    background-color: #e8e4e0 !important;
+    border: 2px solid #222d52 !important;
+    color: #222d52 !important;
+    font-weight: 600 !important;
+    border-radius: 10px !important;
+}
+
+/* --- POP-UP (Mantenha sempre) --- */
+.pop_up {
+    border: 3px dotted #222d52 !important;
+    background: #e8e4e0 !important;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+}
+
+.animacao_pulinhos {
+    color: #222d52;
+    font-weight: 900;
+    display: inline-block;
+}
+
+/* Seus estilos de botões (btn_comprar, preencher_btn, etc) continuam os mesmos aqui */
+         
+/* ----------------------------- */
+/* |     mudanças do grupo     | */
+/* ----------------------------- */
+
+.body{
+    overflow: none;
+}
+body{
+    padding-top: 100px;
+}
+.btn_comprar{
+    position: relative;
+
+    padding: 10px 20px 10px 20px;
+    border-radius: 7px;
+    background-color: #007bff;
+    border: none;
+    color: white;
+    transition: box-shadow 0.2s ease-in-out;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0px 0px 0px transparent;
+    overflow-y: hidden;
+    z-index: 0;
+}
+.texto_btn{
+    position: relative;
+    z-index: 1;
+}
+.btn_comprar:hover{
+    transform: scale(1.1);
+}
+.btn_comprar:active{
+    transform: scale(1) !important;
+    box-shadow: 0px 0px 15px rgb(255, 255, 255, 0.5);
+}
+.preencher_btn{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 0px;
+    background-color: #28a745;
+    z-index: 0;
+}
+.btn_comprar:focus .preencher_btn{
+    animation: carregarBtnComprar 2s linear forwards;
+}
+.fundo_animacao {
+    position: fixed; /* Fixa na tela visível */
+    top: 0;
+    left: 0;
+    width: 100vw;   /* Largura total da janela */
+    height: 100vh;  /* Altura total da janela */
+    background-color: rgba(0, 0, 0, 0.5); /* Escurece um pouco mais para dar foco */
+    opacity: 0;
+    z-index: 1000;
+    display: none;
+    pointer-events: all; /* Garante que o usuário não clique no que está atrás */
+}
+.animacaoOpacity{
+    display: block;
+    animation: animacaoOpacity 0.4s 2.2s ease-in-out forwards;
+}
+.animacaoOpacity2{
+    animation: animacaoOpacity2 0.4s ease-in-out forwards;
+}
+.pop_up{
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    top: -25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 300px;
+    width: 450px;
+    border-radius: 15px;
+    background:whitesmoke;
+    z-index: 1001;
+}
+.animacaoDescer{
+    animation: descerPopUp 0.4s 2.2s linear forwards;
+}
+.animacaoDescer2{
+    animation: descerPopUp2 0.4s linear forwards;
+}
+.overflow{
+    overflow: hidden;
+}
+.pulinhos{
+    animation: pulinhos 0.6s 2.8s ease-in-out;
+}
+.btn_sair{
+    position: absolute;
+    bottom: 25px;
+    padding: 6px 16px 6px 16px;
+    border-radius: 7px;
+    background-color: #dc3545;
+    border: none;
+    color: white;
+}
+/* animações */
+@keyframes animacaoOpacity {
+    from {opacity: 0;}
+    to {opacity: 1;}
+}
+@keyframes animacaoOpacity2 {
+    from {opacity: 1;}
+    to {opacity: 0;}
+}
+
+/* Animação para o Pop-up aparecer e parar no meio */
+@keyframes descerPopUp {
+    0% { top: -30%; }
+    100% { top: 50%; } /* Para exatamente no centro vertical */
+}
+
+/* Animação para o Pop-up continuar descendo até sumir por baixo */
+@keyframes descerPopUp2 {
+    0% { top: 50%; }
+    100% { top: 150%; } /* Sai pela parte de baixo da tela */
+}
+
+@keyframes carregarBtnComprar{
+    0% {width: 0%;}
+    25% {width: 25%;}
+    50% {width: 50%;}
+    75% {width: 75%;}
+    85% {width: 100%;}
+    100% {width: 100%;}
+}
+@keyframes pulinhos {
+    0% {transform: translateY(0px)}
+    25% {transform: translateY(-5px)}
+    50% {transform: translateY(-10px)}
+    75% {transform: translateY(-5px)}
+    100% {transform: translateY(0px)}
+}
+/* Garante que o fundo bege fique no fundo total */
+main {
+    z-index: 1;
+}
+
+/* As notas ficam em uma camada intermediária */
+.music-notes-layer {
+    position: fixed; /* Fixed para elas subirem pela tela toda */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 2; 
+    pointer-events: none;
+}
+
+/* A faixa do produto fica à frente das notas */
+.produto-faixa-horizontal {
+    position: relative;
+    z-index: 10; /* Valor maior para ficar por cima das notas */
+    background-color: #cfc9c4;
+    border: 3px dotted #222d52;
+    /* ... resto do seu CSS ... */
+}
+/* Tablets e Celulares em Paisagem (Abaixo de 992px) */
+@media (max-width: 991px) {
+    .produto-full-width {
+        flex-direction: column; /* Empilha os elementos */
+    }
+
+    .bg-image-container {
+        border-right: none;
+        border-bottom: 3px dotted #222d52; /* Linha horizontal agora */
+        width: 100%;
+        padding: 50px 20px;
+    }
+
+    .img-produto-full {
+        width: 60%; /* Imagem menor no mobile para não ocupar a tela toda */
+        max-width: 350px;
+    }
+
+    .info-container {
+        width: 100%;
+        padding: 50px 30px;
+        text-align: center; /* Centraliza o texto no mobile */
+    }
+
+    /* Centraliza as opções de customização e o preço/botão */
+    .customizacao-box .d-flex,
+    .info-container .d-flex {
+        justify-content: center;
+        flex-wrap: wrap; /* Permite que preço e botão quebrem linha se necessário */
+    }
+}
+
+/* Celulares Pequenos (Abaixo de 576px) */
+@media (max-width: 575px) {
+    .img-produto-full {
+        width: 80%; /* Aumenta um pouco em telas muito pequenas */
+    }
+    
+}

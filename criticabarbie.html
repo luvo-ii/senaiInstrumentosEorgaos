@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Bootstrap CSS -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+<link rel="stylesheet" href="index.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="stylebarbie.css">
+</head>
+<body id="body">
+    <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-dark position-fixed w-100">
+    <div class="container-fluid px-5 py-2">
+      <a class="navbar-brand" href="index.html">Senai Instrumentos</a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html">Home</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              Instrumentos
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="criticabarbie.html">Guitarra</a></li>
+              <li><a class="dropdown-item" href="criticaguardioes.html">Piano</a></li>
+              <li><a class="dropdown-item" href="oppen.html">Bateria</a></li>
+            </ul>
+          </li>
+        </ul>
+
+        <ul class="navbar-nav ms-auto">
+          <li>
+            <div class="btn-group" role="group" aria-label="Basic outlined example">
+              <a href="login.html" class="btn btn-outline-custom">Entrar</a>
+              <a href="cadastro.html" class="btn btn-outline-custom">Criar uma conta</a>
+            </div>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+
+    <div id="fundo_animacao" class="fundo_animacao"></div>
+    <div id="pop_up" class="pop_up">
+      <h2 class="animacao_pulinhos">P</h2>
+      <h2 class="animacao_pulinhos">a</h2>
+      <h2 class="animacao_pulinhos">r</h2>
+      <h2 class="animacao_pulinhos">a</h2>
+      <h2 class="animacao_pulinhos">b</h2>
+      <h2 class="animacao_pulinhos">é</h2>
+      <h2 class="animacao_pulinhos">n</h2>
+      <h2 class="animacao_pulinhos" style="margin-right: 10px;">s</h2>
+      <h2 class="animacao_pulinhos">p</h2>
+      <h2 class="animacao_pulinhos">e</h2>
+      <h2 class="animacao_pulinhos">l</h2>
+      <h2 class="animacao_pulinhos" style="margin-right: 10px;">a</h2>
+      <h2 class="animacao_pulinhos">s</h2>
+      <h2 class="animacao_pulinhos">u</h2>
+      <h2 class="animacao_pulinhos" style="margin-right: 10px;">a</h2>
+      <h2 class="animacao_pulinhos">c</h2>
+      <h2 class="animacao_pulinhos">o</h2>
+      <h2 class="animacao_pulinhos">m</h2>
+      <h2 class="animacao_pulinhos">p</h2>
+      <h2 class="animacao_pulinhos">r</h2>
+      <h2 class="animacao_pulinhos">a</h2>
+      <h2 class="animacao_pulinhos">!</h2>
+        <button class="btn_sair" onclick="sair()">Sair</button>
+    </div>
+    <div class="music-notes-layer"></div>
+<main class="container-fluid p-0 min-vh-100" style="background-color: #e8e4e0; position: relative; overflow: hidden; padding-top: 80px;">
+    
+    <div class="music-notes-layer"></div>
+
+    <div class="produto-full-width">
+        <div class="row g-0 h-100">
+            
+            <div class="col-lg-6 d-flex align-items-center justify-content-center p-5 bg-image-container">
+                <img src="img/gui.png" class="img-fluid img-produto-full" alt="Stratocaster">
+            </div>
+
+            <div class="col-lg-6 d-flex align-items-center">
+                <div class="p-5 info-container">
+                    <h1 class="titulo-produto">Stratocaster</h1>
+                    <p class="texto-produto">
+                        A Fender Stratocaster, criada em 1954, é famosa pelo design double-cutaway e som claro. 
+                        Personalize a sua versão icônica abaixo.
+                    </p>
+
+                    <div class="customizacao-box mb-4">
+                        <h5 class="mb-3" style="color: #222d52; font-weight: 700;">CUSTOMIZE SUA GUITARRA:</h5>
+                        
+                        <div class="mb-3">
+                            <label class="form-label small fw-bold">COR DO CORPO:</label>
+                            <div class="d-flex gap-2">
+                                <div class="btn-color" style="background-color: #b22222;" title="Sunburst"></div>
+                                <div class="btn-color" style="background-color: #f0f0f0;" title="Olympic White"></div>
+                                <div class="btn-color active" style="background-color: #000;" title="Black"></div>
+                            </div>
+                        </div>
+
+                        <div class="mb-3">
+                            <label class="form-label small fw-bold">MADEIRA DA ESCALA:</label>
+                            <select class="form-select custom-select-prod">
+                                <option selected>Maple (Som mais brilhante)</option>
+                                <option value="1">Rosewood (Som mais quente)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="d-flex align-items-center gap-4 mt-5">
+                        <h2 class="preco-tag">R$ 8.499,00</h2>
+                        <button class="btn_comprar" onfocus="aparecer()">
+                            <span class="preencher_btn"></span>
+                            <span class="texto_btn">Comprar Agora</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+  <script>
+    let fundo_animacao = document.getElementById('fundo_animacao')
+    let pop_up = document.getElementById('pop_up')
+    let body = document.getElementById('body')
+    let animacao_pulinhos = document.querySelectorAll('.animacao_pulinhos')
+    function aparecer(){
+      fundo_animacao.classList.add('animacaoOpacity')
+      fundo_animacao.classList.remove('animacaoOpacity2')
+      pop_up.classList.add('animacaoDescer')
+      body.classList.toggle('overflow')
+
+      animacao_pulinhos.forEach((h2, index) => {
+        setTimeout(()=>{
+          h2.classList.add('pulinhos')
+        }, index * 100)
+      })
+    }
+    function removerAnimacao(){
+      body.classList.toggle('overflow')
+      fundo_animacao.classList.add('animacaoOpacity2')
+      fundo_animacao.classList.remove('animacaoOpacity')
+      pop_up.classList.remove('animacaoDescer2')
+    }
+    function sair(){
+      pop_up.classList.add('animacaoDescer2')
+      pop_up.classList.remove('animacaoDescer')
+      setTimeout(removerAnimacao, 600)
+
+      animacao_pulinhos.forEach((h2, index) => {
+          h2.classList.remove('pulinhos')
+      })
+    }
+    const navEl = document.querySelector('.navbar');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY >= 50) {
+        navEl.classList.add('navbar-scrolled');
+      } else {
+        navEl.classList.remove('navbar-scrolled');
+      }
+    });
+function createNotes() {
+    const layer = document.querySelector('.music-notes-layer');
+    if(!layer) return;
+
+    const noteIcons = ['♪', '♫', '♩', '♬', '♭'];
+    
+    for (let i = 0; i < 20; i++) { // Aumentei um pouco a quantidade
+        let note = document.createElement('div');
+        note.className = 'note';
+        note.innerText = noteIcons[Math.floor(Math.random() * noteIcons.length)];
+        
+        note.style.left = Math.random() * 100 + "vw";
+        note.style.fontSize = (Math.random() * 20 + 20) + "px";
+        
+        // Cores baseadas no seu azul escuro e no azul da faixa
+        note.style.color = Math.random() > 0.5 ? '#222d52' : '#4a5c91';
+        
+        // --- O PULO DO GATO ---
+        // Usar um valor negativo (ex: -10s) faz a animação começar "no meio"
+        const delay = Math.random() * 15;
+        note.style.animationDelay = `-${delay}s`; 
+        
+        // Velocidades diferentes para dar profundidade
+        const duration = 10 + Math.random() * 10;
+        note.style.animationDuration = `${duration}s`;
+        
+        layer.appendChild(note);
+    }
+}
+
+// Chama a função ao carregar a página
+document.addEventListener('DOMContentLoaded', createNotes);
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+</body>

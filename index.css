@@ -1,0 +1,521 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body{
+  background: linear-gradient(to bottom, #e8e4e0, #cfc9c4);
+  /* background-color: #e8e4e0; */
+  overflow-x: hidden;
+}
+.bordas{
+  border: 3px dotted #222d52;
+  border-top: 0px;
+  border-bottom: 0px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+  background-color: transparent;
+}
+.main_div{
+  flex-direction: column;
+  position: absolute;
+  bottom: 0%;
+  left: 50%;
+  transform: translate(-50%, 0%) !important;
+  width: 40%;
+  height: auto;
+  z-index: 101;
+  padding: 15px;
+
+  background-color: rgb(199, 199, 199, 0.25);
+  border-radius: 25px;
+}
+.mx-6{
+  margin: 0 2vw 0 2vw;
+}
+
+.divisor{
+  border: 3px dotted #222d52;
+  border-left: 0px;
+  border-right: 0px;
+  height: 60px;
+  width: 100%;
+  background-image: repeating-linear-gradient(
+    135deg,
+    #e8e4e0,
+    #e8e4e0 10px,
+    #cfc9c4 10px,
+    #cfc9c4 20px
+  );
+}
+.animar{
+  opacity: 0;
+  transform: translateY(20px);
+  transition: 1s;
+}
+.animar.show{
+  opacity: 1;
+  transform: translateY(0);
+}
+.footer {
+    margin-top: 80px;
+    padding: 0 20px; /* Margem de segurança nas laterais */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.footer-grid {
+    display: flex;
+    flex-wrap: wrap; /* Permite que os itens "pulem" para a linha de baixo */
+    justify-content: center;
+    gap: 20px 60px; /* 20px vertical, 60px horizontal */
+    margin-top: 50px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    min-width: 280px; /* Garante que os nomes não fiquem espremidos */
+}
+
+.item_footer {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 40px;
+    text-align: left; /* Alinha o texto à esquerda do ícone */
+}
+
+.item_footer h4 {
+    margin-bottom: 2px;
+    font-size: 1.5rem;
+    color: #222d52;
+}
+
+.item_footer p {
+    margin-bottom: 0;
+    font-size: 1rem;
+    opacity: 0.8;
+}
+
+.logo {
+    width: 64px;
+    height: 64px;
+    border-radius: 7px;
+    object-fit: cover; /* Garante que a foto não distorça se não for quadrada */
+    flex-shrink: 0;   /* Impede que a foto diminua no celular */
+}
+
+.anima1{
+  animation: girarLogo1 2s ease-in-out infinite;
+  animation-direction: alternate;
+}
+.anima2{
+  animation: girarLogo2 3s ease-in-out infinite;
+  animation-direction: alternate;
+}
+.anima3{
+  animation: girarLogo3 2.5s ease-in-out infinite;
+  animation-direction: alternate;
+}
+.anima4{
+  animation: girarLogo4 4s ease-in-out infinite;
+  animation-direction: alternate;
+}
+@keyframes girarLogo1{
+  0%{transform: translateY(0) rotate(0);}
+  30%{transform: translateY(-70px) rotate(45deg);}
+  60%{transform: translateY(-40px) rotate(-30deg);}
+  100%{transform: translateY(0) rotate(0);}
+}
+@keyframes girarLogo2{
+  0%{transform: translateY(0) rotate(0);}
+  30%{transform: translateY(-70px) rotate(-25deg);}
+  60%{transform: translateY(-40px) rotate(40deg);}
+  100%{transform: translateY(0) rotate(0);}
+}
+@keyframes girarLogo3{
+  0%{transform: translateY(0) rotate(0);}
+  30%{transform: translateY(70px) rotate(45deg);}
+  60%{transform: translateY(40px) rotate(-30deg);}
+  100%{transform: translateY(0) rotate(0);}
+}
+@keyframes girarLogo4{
+  0%{transform: translateY(0) rotate(0);}
+  30%{transform: translateY(70px) rotate(-25deg);}
+  60%{transform: translateY(40px) rotate(40deg);}
+  100%{transform: translateY(0) rotate(0);}
+}
+/* nav-link */
+.nav-link{
+  transition: opacity ease-in-out 0.3s;
+}
+.nav-link:hover{
+  opacity: 0.7;
+}
+/* Estado Normal */
+.btn-outline-custom {
+    color: #e8e4e0;
+    border-color: #e8e4e0;
+    background-color: transparent;
+    transition: all 0.3s ease;
+}
+
+/* Estado de Hover (Ao passar o mouse) */
+.btn-outline-custom:hover {
+    background-color: #c7c4c1 !important;
+    border-color: #e8e4e0;
+    color: #333; /* Cor do texto escura para dar contraste com o bege claro */
+}
+
+/* Quando o botão está selecionado/clicado */
+.btn-check:checked + .btn-outline-custom,
+.btn-outline-custom:active {
+    background-color: #e8e4e0;
+    border-color: #e8e4e0;
+    color: #333;
+}
+.hero-content {
+    position: relative;
+    z-index: 2; /* Fica na frente da faixa ::before */
+}
+/* Container principal com o fundo que você definiu */
+.main_text {
+    color: #222d52;
+    font-size: 4rem; /* Tamanho bem maior para o título */
+    font-weight: 800; /* Deixa a fonte bem robusta */
+    line-height: 1.1;
+    margin-top: 60px; /* Empurra o título mais para baixo */
+    margin-bottom: 20px;
+    letter-spacing: -2px; /* Estilo moderno de títulos grandes */
+}
+
+/* Container Principal (Ajustes para conter a faixa) */
+.main {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 180px; /* Mantém o texto abaixo da navbar */
+    margin: 0;
+    
+    /* Importante: overflow hidden para a faixa angulada não criar scroll */
+    overflow: hidden; 
+    
+    background-color: #e8e4e0; /* Fundo bege */
+}
+
+/* Criamos uma classe para o que deve diminuir */
+.hero-content, .spline-mini-container {
+    transition: transform 0.1s linear, opacity 0.1s linear;
+    will-change: transform, opacity; /* Melhora a performance */
+}
+
+/* Criando a Faixa Azul Angulada */
+.main::before {
+    content: "";
+    position: absolute;
+    
+    /* Centraliza verticalmente na área do texto */
+    top: 20%; 
+    left: -50vw; /* Começa bem fora da tela na esquerda */
+    
+    /* Garante que a faixa atravesse toda a visão, mesmo rotacionada */
+    width: 200vw; 
+    
+    /* Altura suficiente para cobrir o H1 e o P */
+    height: 400px; 
+    
+    /* Sua nova cor: Um azul mais claro e suave */
+    background-color: rgba(74, 92, 145, 0.15); /* #4a5c91 com transparência */
+    
+    /* A ROTAÇÃO: 30 graus para cima (sentido anti-horário) */
+    transform: rotate(-7deg);
+    
+    /* Coloca a faixa atrás do texto, mas na frente do fundo bege */
+    z-index: -1; 
+    
+    /* Suaviza as bordas da faixa */
+    pointer-events: none; /* Garante que não atrapalhe cliques no Spline */
+}
+
+/* Garante que o container de baixo comece exatamente onde o main termina */
+.container_main {
+    position: relative;
+    z-index: 10;
+    background-color: #e8e4e0;
+    min-height: 100vh;
+    /* Remove qualquer margem que possa separar as duas seções */
+    margin-top: 0; 
+    box-shadow: 0 -15px 35px rgba(0,0,0,0.1);
+}
+
+/* O "Spline" menor e sem bordas */
+.spline-mini-container {
+  width: 100%;
+  max-width: 700px; /* Bem menor que o anterior */
+  height: 350px;    /* Altura reduzida para não ocupar a tela toda */
+  background: transparent; /* Garante que não haja fundo branco */
+  overflow: hidden;
+  /* Removido bordas e sombras para um look "clean" */
+}
+:root {
+  /* Sua cor #222d52 convertida para RGB para podermos controlar a transparência */
+  --nav-bg: rgba(34, 45, 82, 0); 
+}
+
+.navbar {
+  /* A mágica acontece aqui: transicionamos o background-color */
+  background-color: var(--nav-bg) !important;
+  transition: background-color 0.6s cubic-bezier(0.4, 0, 0.2, 1) !important;
+  border-bottom: 1px solid transparent;
+
+  position: fixed !important; /* Garante que ela não saia do lugar */
+  top: 0;                     /* Alinha no topo absoluto */
+  left: 0;                    /* Alinha na esquerda absoluta */
+  width: 100%;                /* Ocupa a largura total */
+  z-index: 9999 !important;
+}
+
+/* Quando a classe de scroll for adicionada */
+.navbar.navbar-scrolled {
+  --nav-bg: rgba(34, 45, 82, 0.95); /* Cor sólida com 95% de opacidade */
+  border-bottom: 1px solid rgba(232, 228, 224, 0.1); /* Um detalhe sutil na borda */
+  backdrop-filter: blur(8px); /* Efeito de vidro */
+}
+/* 1. Cores Iniciais (Navbar Transparente) */
+.navbar .nav-link, 
+.navbar .navbar-brand {
+    color: #222d52 !important; /* Sua cor azul escura para dar contraste no bege */
+    transition: color 0.4s ease;
+}
+
+/* 2. Cores após o Scroll (Navbar Escura) */
+.navbar.navbar-scrolled .nav-link, 
+.navbar.navbar-scrolled .navbar-brand {
+    color: #e8e4e0 !important; /* Cor clara para destacar no fundo escuro */
+}
+
+/* 3. Ajuste para o botão do menu mobile (hamburguer) */
+.navbar-toggler {
+    border-color: #222d52 !important;
+}
+
+/* Forçar cor do ícone hamburguer quando transparente */
+.navbar-toggler-icon {
+    /* Esse filtro transforma o ícone branco do Bootstrap em azul #222d52 */
+    filter: invert(13%) sepia(35%) saturate(1234%) hue-rotate(195deg) brightness(95%) contrast(90%);
+}
+
+/* Voltar o ícone para branco/claro no scroll */
+.navbar.navbar-scrolled .navbar-toggler-icon {
+    filter: invert(100%) sepia(0%) saturate(0%) brightness(100%) contrast(100%);
+}
+
+/* Estado Inicial: Borda e Texto Azul Escuro */
+.navbar .btn-outline-custom {
+    color: #222d52 !important;
+    border-color: #222d52 !important;
+    transition: all 0.4s ease;
+}
+
+/* Estado após Scroll: Borda e Texto Bege Claro */
+.navbar.navbar-scrolled .btn-outline-custom {
+    color: #e8e4e0 !important;
+    border-color: #e8e4e0 !important;
+}
+
+/* Efeito de Hover para os botões na navbar */
+.navbar .btn-outline-custom:hover {
+    background-color: #222d52 !important;
+    color: #e8e4e0 !important;
+}
+
+/* Container centralizado com largura controlada */
+.div_fundo_container {
+    width: 90%; /* Ajuste para a largura que você tinha antes (ex: 1200px ou 90%) */
+    max-width: 1100px; 
+    margin: 0 auto -3px auto; /* O -3px puxa o divisor de baixo para encostar na borda */
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    z-index: 11;
+    padding-top: 50px;
+}
+
+/* Card Superior */
+.custom-card-top {
+    background-color: #cfc9c4;
+    border: 3px dotted #222d52;
+    border-bottom: none; 
+    border-radius: 30px 30px 0 0;
+    width: 100%;
+    padding: 40px 5%;
+}
+
+/* Grupo de Botões */
+.custom-btn-group {
+    width: 100%;
+    border: 3px dotted #222d52;
+    border-bottom: none; /* Mantemos sem borda para fundir */
+    border-radius: 0;
+    display: flex;
+    overflow: hidden;
+}
+
+/* Botões */
+.custom-btn-group .btn {
+    flex: 1;
+    border: none !important;
+    border-right: 3px dotted #222d52 !important;
+    border-radius: 0 !important;
+    padding: 18px;
+    font-weight: 800;
+    color: #222d52 !important;
+    background-color: #e8e4e0 !important; 
+    transition: all 0.2s ease;
+}
+
+.custom-btn-group .btn:last-child {
+    border-right: none !important;
+}
+
+/* Botão Ativo */
+.custom-btn-group .btn.active {
+    background-color: #222d52 !important;
+    color: #e8e4e0 !important;
+}
+.music-notes-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Não atrapalha cliques */
+    z-index: 0; /* Fica atrás do texto, mas na frente da faixa azul */
+}
+.note {
+    position: absolute;
+    /* Começa abaixo da tela para não aparecer parada lá em cima */
+    top: 110vh; 
+    opacity: 0;
+    animation: floatUp 15s linear infinite;
+    pointer-events: none;
+    user-select: none;
+}
+/* Estilo principal do Menu Dropdown */
+.dropdown-menu {
+    background-color: #e8e4e0 !important; /* Cor de fundo bege igual ao site */
+    border: 3px dotted #222d52 !important; /* Borda pontilhada característica */
+    border-radius: 15px !important;
+    padding: 10px 0;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    margin-top: 10px !important; /* Espaço para não colar na navbar */
+}
+
+/* Estilo dos itens dentro do dropdown */
+.dropdown-item {
+    color: #222d52 !important;
+    font-weight: 600;
+    padding: 10px 20px;
+    transition: all 0.3s ease;
+}
+
+/* Efeito de hover (passar o mouse) nos itens */
+.dropdown-item:hover {
+    background-color: #222d52 !important; /* Inverte a cor: fundo azul */
+    color: #e8e4e0 !important; /* Texto claro */
+}
+
+/* Se a navbar estiver escura (scrolled), podemos ajustar o dropdown se necessário */
+.navbar.navbar-scrolled .dropdown-menu {
+    background-color: #e8e4e0 !important; /* Mantemos o bege para leitura clara */
+    border-color: #e8e4e0 !important; /* No fundo azul, a borda fica clara */
+}
+
+/* Ajuste da setinha do dropdown para aparecer sempre */
+.dropdown-toggle::after {
+    vertical-align: middle;
+    border-top-color: inherit; /* Segue a cor do texto "Instrumentos" */
+}
+@keyframes floatUp {
+    0% {
+        /* Garante que o ponto 0 seja abaixo da visão */
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    10% { opacity: 0.4; }
+    90% { opacity: 0.4; }
+    100% {
+        /* Sobe até sumir no topo */
+        transform: translateY(-130vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+/* Ajuste para telas menores */
+@media screen and (max-width: 1500px){
+  .quadrado{
+    width: 100%;
+  }
+}
+@media (max-width: 991px) {
+    .navbar-collapse {
+        background-color: #e8e4e0; /* Fundo igual ao do site no topo */
+        padding: 20px;
+        border-radius: 15px;
+        margin-top: 15px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        border: 2px dotted #222d52;
+    }
+
+    /* Se a navbar já estiver escura, o menu mobile também fica escuro */
+    .navbar.navbar-scrolled .navbar-collapse {
+        background-color: #222d52;
+        border-color: #e8e4e0;
+    }
+}
+@media (max-width: 768px) {
+    .main_text {
+        font-size: 4rem;
+        margin-top: 40px;
+    }
+    .footer-grid {
+        gap: 0; /* No celular, o gap das colunas não é necessário */
+    }
+    
+    .item_footer {
+        gap: 15px; /* Reduz um pouco o espaço no mobile */
+        margin-bottom: 30px;
+    }
+
+    .item_footer h4 {
+        font-size: 1rem;
+    }
+
+    .item_footer p {
+        font-size: 0.8rem;
+    }
+}
+@media (max-width: 576px) {
+  .spline-mini-container {
+    height: 250px;
+    max-width: 90%;
+  }
+  .main_text {
+    font-size: 3rem;
+  }
+}

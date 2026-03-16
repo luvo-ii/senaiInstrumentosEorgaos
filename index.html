@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <link rel="stylesheet" href="index.css">
+  <link rel="stylesheet" href="card.css">
+  <title>Home</title>
+</head>
+
+<body>
+  <!-- Navbar-->
+  <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-dark position-fixed w-100">
+    <div class="container-fluid px-5 py-2">
+      <a class="navbar-brand" href="index.html">Senai Instrumentos</a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" href="index.html">Home</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button"
+              data-bs-toggle="dropdown" aria-expanded="false">
+              Instrumentos
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <li><a class="dropdown-item" href="criticabarbie.html">Guitarra</a></li>
+              <li><a class="dropdown-item" href="criticaguardioes.html">Piano</a></li>
+              <li><a class="dropdown-item" href="oppen.html">Bateria</a></li>
+            </ul>
+          </li>
+        </ul>
+
+        <ul class="navbar-nav ms-auto">
+          <li>
+            <div class="btn-group" role="group" aria-label="Basic outlined example">
+              <a href="login.html" class="btn btn-outline-custom">Entrar</a>
+              <a href="cadastro.html" class="btn btn-outline-custom">Criar uma conta</a>
+            </div>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+
+  <!--  -->
+  <div class="main container-fluid d-flex flex-column align-items-center justify-content-start">
+    <div class="music-notes-layer"></div>
+
+    <div class="text-center hero-content px-3">
+      <h1 class="main_text">O melhor website de <br>instrumentos</h1>
+      <p class="lead mx-auto" style="max-width: 650px; font-size: 1.25rem;">
+        Neste site estão disponíveis três tipos diferentes de instrumentos:
+        guitarra, piano de cauda e bateria para iniciantes.
+      </p>
+    </div>
+
+    <div class="spline-mini-container">
+      
+    </div>
+  </div>
+  <div class="container_main">
+    <div class="bordas">
+
+      <!--  -->
+      <div class="divisor"></div>
+
+      <div class="div_fundo_container flex-column animar">
+
+        <div class="tab-content custom-card-top w-100" id="instrumentosTabContent">
+
+          <div class="tab-pane fade show active" id="cordas" role="tabpanel">
+            <div class="row align-items-center g-0">
+              <div class="col-md-5 text-center">
+                <img src="img/gui.png" class="img-fluid" style="max-height: 300px;" alt="Guitarra">
+              </div>
+              <div class="col-md-7 px-4">
+                <h2 class="fw-bold" style="color: #222d52;">Instrumentos de Corda</h2>
+                <p>Explore a vibração e a melodia das cordas. Da suavidade do violão à energia da guitarra elétrica,
+                  perfeitos para harmonias complexas e solos marcantes.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane fade" id="percussao" role="tabpanel">
+            <div class="row align-items-center g-0">
+              <div class="col-md-5 text-center">
+                <img src="img/bat.png" class="img-fluid" style="max-height: 300px;" alt="Bateria">
+              </div>
+              <div class="col-md-7 px-4">
+                <h2 class="fw-bold" style="color: #222d52;">Instrumentos de Percussão</h2>
+                <p>Sinta o ritmo e a pulsação. Conjuntos de bateria e percussão rítmica que definem a base e a energia
+                  de qualquer composição musical rítmica.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="tab-pane fade" id="teclas" role="tabpanel">
+            <div class="row align-items-center g-0">
+              <div class="col-md-5 text-center">
+                <img src="img/pian.png" class="img-fluid" style="max-height: 300px;" alt="Piano">
+              </div>
+              <div class="col-md-7 px-4">
+                <h2 class="fw-bold" style="color: #222d52;">Instrumentos de Teclas</h2>
+                <p>A elegância do piano de cauda e a versatilidade dos teclados modernos. Um universo de notas e
+                  possibilidades sonoras ao alcance dos seus dedos.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="nav btn-group custom-btn-group w-100" role="tablist">
+          <button class="btn active" data-bs-toggle="pill" data-bs-target="#cordas" type="button">Corda</button>
+          <button class="btn" data-bs-toggle="pill" data-bs-target="#percussao" type="button">Percussão</button>
+          <button class="btn" data-bs-toggle="pill" data-bs-target="#teclas" type="button">Teclas</button>
+        </div>
+
+      </div>
+      <!--Final do carrosel-->
+
+      <div class="divisor"></div>
+
+      <section id="cards" class="container-fluid">
+        <div class="container_cards">
+          <div class="flip-card animar">
+            <div class="flip-card-inner">
+              <!-- Frente do Card -->
+              <div class="flip-card-front">
+                <img src="img/gui.png" alt="">
+              </div>
+              <!-- Verso do Card -->
+              <div class="flip-card-back">
+                <h2>Ver mais sobre Guitarra</h2>
+                <a href="criticabarbie.html" class="bnt_card">Ver mais</a>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card animar">
+            <div class="flip-card-inner">
+              <!-- Frente do Card -->
+              <div class="flip-card-front">
+                <img src="img/pian.png" alt="">
+              </div>
+              <!-- Verso do Card -->
+              <div class="flip-card-back">
+                <h2>Ver mais sobre Piano</h2>
+                <a href="criticaguardioes.html" class="bnt_card">Ver mais</a>
+              </div>
+            </div>
+          </div>
+          <div class="flip-card animar">
+            <div class="flip-card-inner">
+              <!-- Frente do Card -->
+              <div class="flip-card-front">
+                <img src="img/bat.png" alt="">
+              </div>
+              <!-- Verso do Card -->
+              <div class="flip-card-back">
+                <h2>Ver mais sobre Bateria</h2>
+                <a href="oppen.html" class="bnt_card">Ver mais</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div class="divisor"></div>
+<div class="footer">
+  <span style="display: flex; align-items: center;">
+    <h2>INTEGRANTES</h2>
+    <img src="img/arrow_down.svg" alt="">
+  </span>
+  
+  <div class="footer-grid animar"> 
+    <div class="footer-column">
+      <span class="item_footer">
+        <img src="img/gat.avif" alt="" class="logo anima1">
+        <span>
+          <h4>Ana Lívia dos Santos Lopes</h4>
+          <p>ana.livia.santos.lopes@gmail.com</p>
+        </span>
+      </span>
+      <span class="item_footer">
+        <img src="img/joao.jpg" alt="" class="logo anima2">
+        <span>
+          <h4>Jacquys Barbosa da Silva</h4>
+          <p>jacquys0801@gmail.com</p>
+        </span>
+      </span>
+    </div>
+
+    <div class="footer-column">
+      <span class="item_footer">
+        <img src="img/Totoro_in_the_rain.webp" alt="" class="logo anima3">
+        <span>
+          <h4>Jhônatas Lopes da Silva</h4>
+          <p>jhonataslopesilva@gmail.com</p>
+        </span>
+      </span>
+      <span class="item_footer">
+        <img src="img/logo1.png" alt="" class="logo anima4">
+        <span>
+          <h4>Luis Gustavo Cesar Consoli</h4>
+          <p>luis.consoli14@gmail.com</p>
+        </span>
+      </span>
+    </div>
+  </div>
+</div>
+      <br> <br> <br> <br>
+    </div>
+  </div>
+
+
+  <script>
+    const navEl = document.querySelector('.navbar');
+
+    window.addEventListener('scroll', () => {
+      if (window.scrollY >= 50) {
+        navEl.classList.add('navbar-scrolled');
+      } else {
+        navEl.classList.remove('navbar-scrolled');
+      }
+    });
+
+window.addEventListener('scroll', function() {
+    const heroContent = document.querySelector('.hero-content');
+    const splineContainer = document.querySelector('.spline-mini-container');
+    const scrollPosition = window.scrollY;
+    const vh = window.innerHeight;
+    
+    if (scrollPosition <= vh) {
+        // Cálculo do efeito (escala de 1 a 0.85 e opacidade de 1 a 0)
+        const scaleValue = 1 - (scrollPosition / vh) * 0.15;
+        const opacityValue = 1 - (scrollPosition / vh) * 0.8;
+        
+        // Aplica apenas nos elementos de conteúdo
+        if(heroContent) {
+            heroContent.style.transform = `scale(${scaleValue})`;
+            heroContent.style.opacity = opacityValue;
+        }
+        if(splineContainer) {
+            splineContainer.style.transform = `scale(${scaleValue})`;
+            splineContainer.style.opacity = opacityValue;
+        }
+    }
+});
+function createNotes() {
+    const layer = document.querySelector('.music-notes-layer');
+    if(!layer) return;
+
+    const noteIcons = ['♪', '♫', '♩', '♬', '♭'];
+    
+    for (let i = 0; i < 20; i++) { // Aumentei um pouco a quantidade
+        let note = document.createElement('div');
+        note.className = 'note';
+        note.innerText = noteIcons[Math.floor(Math.random() * noteIcons.length)];
+        
+        note.style.left = Math.random() * 100 + "vw";
+        note.style.fontSize = (Math.random() * 20 + 20) + "px";
+        
+        // Cores baseadas no seu azul escuro e no azul da faixa
+        note.style.color = Math.random() > 0.5 ? '#222d52' : '#4a5c91';
+        
+        // --- O PULO DO GATO ---
+        // Usar um valor negativo (ex: -10s) faz a animação começar "no meio"
+        const delay = Math.random() * 15;
+        note.style.animationDelay = `-${delay}s`; 
+        
+        // Velocidades diferentes para dar profundidade
+        const duration = 10 + Math.random() * 10;
+        note.style.animationDuration = `${duration}s`;
+        
+        layer.appendChild(note);
+    }
+}
+
+// Chama a função ao carregar a página
+document.addEventListener('DOMContentLoaded', createNotes);
+  </script>
+  <script src="carregando_items.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
